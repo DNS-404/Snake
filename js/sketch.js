@@ -19,6 +19,7 @@ function generateFood() {
 
 function draw() {
   background(50);
+  snake.death();
   snake.update();
   snake.show();
 
@@ -32,13 +33,13 @@ function draw() {
 }
 
 function keyPressed() {
-  if(keyCode == UP_ARROW){
+  if(snake.xspeed !== 0 && snake.yspeed !== 1 && keyCode == UP_ARROW){
     snake.dir(0, -1);
-  }else if(keyCode == DOWN_ARROW){
+  }else if(snake.xspeed !== 0 && snake.yspeed !== -1 && keyCode == DOWN_ARROW){
     snake.dir(0, 1);
-  }else if(keyCode == RIGHT_ARROW){
+  }else if(snake.xspeed !== -1 && snake.yspeed !== 0 && keyCode == RIGHT_ARROW){
     snake.dir(1, 0);
-  }else if(keyCode == LEFT_ARROW){
+  }else if(snake.xspeed !== 1 && snake.yspeed !== 0 && keyCode == LEFT_ARROW){
     snake.dir(-1, 0);
   }
 }
