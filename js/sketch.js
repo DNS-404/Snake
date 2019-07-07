@@ -17,10 +17,6 @@ function generateFood() {
   food.mult(gridSize);
 }
 
-function mouseClicked(){
-  snake.total++;
-}
-
 function draw() {
   background(50);
   snake.death();
