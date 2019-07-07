@@ -1,5 +1,5 @@
 let snake;
-let size = 10;
+let gridSize = 10;
 let food;
 
 function setup() {
@@ -11,10 +11,14 @@ function setup() {
 
 // Make food appear in correct grid
 function generateFood() {
-  let cols = floor(width/size);
-  let rows = floor(height/size);
+  let cols = floor(width/gridSize);
+  let rows = floor(height/gridSize);
   food = createVector(floor(random(cols)), floor(random(rows)));
-  food.mult(size);
+  food.mult(gridSize);
+}
+
+function mouseClicked(){
+  snake.total++;
 }
 
 function draw() {
@@ -29,7 +33,7 @@ function draw() {
   }
 
   fill(255, 0, 100);
-  rect(food.x, food.y, size, size);
+  rect(food.x, food.y, gridSize, gridSize);
 }
 
 function keyPressed() {
